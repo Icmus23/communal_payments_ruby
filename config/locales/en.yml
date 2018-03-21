@@ -30,4 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  payments:
+    index:
+      language: 'Language'
+      total: 'Total'
+      hot_water: 'Hot water'
+      cold_water: 'Cold water'
+      electricity: 'Electricity'
+      heating: 'Heating'
+      house_territory_cleaning: 'House territory cleaning'
+      intercom: 'Intercom'

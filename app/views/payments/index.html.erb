@@ -1,0 +1,45 @@
+<p>
+  <%= t '.language' %>:
+  <%= link_to_unless_current 'English', locale: :en %> |
+  <%= link_to_unless_current 'Русский', locale: :ru %>
+</p>
+
+<p>--------------------------------</p>
+
+<p>
+  <%= t '.hot_water' %>:
+  <%= @hot_water_amount %> * (<%= @rates[:hot_water] %> + <%= @rates[:water_outfall] %>) = <%= @hot_water_cost %>
+</p>
+
+<p>
+  <%= t '.cold_water' %>:
+  <%= @cold_water_amount %> * (<%= @rates[:cold_water] %> + <%= @rates[:water_outfall] %>) = <%= @cold_water_cost %>
+</p>
+
+<p>
+  <%= t '.electricity' %>:
+  <% if @electricity_amount <= 100 %>
+    <%= @electricity_amount %> * <%= @rates[:electricity_less_100] %>
+  <% else %>
+    100 * <%= @rates[:electricity_less_100] %> + <%= @electricity_amount - 100 %> * <%= @rates[:electricity_more_100] %>
+  <% end %>
+  = <%= @electricity_cost %>
+</p>
+
+<p>
+  <%= t '.heating' %>:
+  <%= @rates[:heating] %>
+</p>
+
+<p>
+  <%= t '.house_territory_cleaning' %>:
+  <%= @rates[:flat]%>
+</p>
+
+<p>
+  <%= t '.intercom' %>:
+  <%= @rates[:intercom] %>
+</p>
+
+<p>--------------------------------</p>
+<p><%= t '.total' %>: <%= @total.round(2) %></p>
